@@ -22,7 +22,7 @@ const link = ApolloLink.from( [headersLink, httpLink] )
 
 
 export default new ApolloClient( {
-  link: new HttpLink(),
+  link,
   cache: new InMemoryCache()
 } )
 
