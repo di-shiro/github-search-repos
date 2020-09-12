@@ -41,6 +41,16 @@ function App() {
     });
   };
 
+  const goPrevious = (search) => {
+    setPaginationArgs({
+      ...paginationArgs,
+      first: null,
+      after: null,
+      last: PER_PAGE,
+      before: search.pageInfo.startCursor,
+    });
+  };
+
   const { query, first, last, before, after } = paginationArgs;
   console.log({ query });
 
@@ -82,6 +92,9 @@ function App() {
                   );
                 })}
               </ul>
+              {search.pageInfo.hasPreviousPage === true ? (
+                <button onClick={(e) => goPrevious(search, e)}>Previous</button>
+              ) : null}
 
               {search.pageInfo.hasNextPage === true ? (
                 <button
