@@ -1,16 +1,16 @@
-import React, { useState } from "react";
-import { ApolloProvider } from "react-apollo";
-import { Query } from "react-apollo";
+import React, { useState } from 'react';
+import { ApolloProvider } from 'react-apollo';
+import { Query } from 'react-apollo';
 
-import client from "./client";
-import { SEARCH_REPOSITORIES } from "./graphql";
+import client from './client';
+import { SEARCH_REPOSITORIES } from './graphql';
 
 const INITIAL_STATE = {
   after: null,
   before: null,
   first: 5,
   last: null,
-  query: "フロントエンドエンジニア",
+  query: 'フロントエンドエンジニア',
 };
 
 function App() {
