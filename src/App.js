@@ -5,6 +5,11 @@ import { Query } from 'react-apollo';
 import client from './client';
 import { SEARCH_REPOSITORIES } from './graphql';
 
+const StarButton = (props) => {
+  const totalCount = props.node.stargazers.totalCount;
+  return <button>{totalCount === 1 ? '1 star' : `${totalCount} stars`}</button>;
+};
+
 const PER_PAGE = 5;
 const INITIAL_STATE = {
   first: PER_PAGE,
@@ -88,6 +93,8 @@ function App() {
                       >
                         {node.name}
                       </a>
+                      &nbsp;
+                      <StarButton node={node} />
                     </li>
                   );
                 })}
