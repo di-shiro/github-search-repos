@@ -1,9 +1,21 @@
-import gql from 'graphql-tag'
-
+import gql from 'graphql-tag';
 
 export const SEARCH_REPOSITORIES = gql`
-  query searchRepository_0($first: Int, $after: String, $last: Int, $before: String, $query: String!) {
-    search(first: $first, after: $after, last: $last, before: $before, query: $query, type: REPOSITORY) {
+  query searchRepository_0(
+    $first: Int
+    $after: String
+    $last: Int
+    $before: String
+    $query: String!
+  ) {
+    search(
+      first: $first
+      after: $after
+      last: $last
+      before: $before
+      query: $query
+      type: REPOSITORY
+    ) {
       repositoryCount
       pageInfo {
         startCursor
@@ -25,10 +37,9 @@ export const SEARCH_REPOSITORIES = gql`
           }
         }
       }
-      
     }
   }
-`
+`;
 
 export const ME = gql`
   query me {
@@ -36,5 +47,5 @@ export const ME = gql`
       name
       avatarUrl
     }
-}
-`
+  }
+`;
